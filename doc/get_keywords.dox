@@ -1,0 +1,24 @@
+Get_keywords algorithm description:
+ - Goal is to extract all descriptions of events that contain proper keywords which are sent as query to our server;
+     - Algorithm : firstly we create a set of keywords from our query;
+                   the next step we run through our timetable and check if keywords from query form a subset of keywords
+                   of each event; and if they are, we collect description of those events in
+                   the 'output["body"]' field which looks like ["desc1","desc2","desc6"];
+                   we return output as a result;
+
+
+Example:
+###########################################################################
+   if tt = {
+   idToEvents = <...."description" : "des1" , "keywords" : ["k1" , "k2", "k3"]>,
+                <...."description" : "des2" , "keywords" : ["k2" , "k2", "k3"]>,
+                <...."description" : "des3" , "keywords" : ["k1" , "k2", "k3"]>
+
+   }
+   input  =  { "keywords" : ["k1", "k2", "k3"]}
+               ........
+   get_keywords
+               ........
+
+   output  = {"body" : ["des1", "des2"]};
+############################################################################
