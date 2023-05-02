@@ -112,7 +112,7 @@ cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_CXX_FLAGS="-Wall -Wextra" ../
 Команде `make` можно передать количество процессов, которые можно запустить одновременно, то есть сколько файлов можно одновременно компилировать. Рекомендуется выставлять `кол-во ядер процессора + 1`.
 ```
 # Собрать проект, используя три процесса.
-make -j3
+make -j3\
 ```
 
 ## Запуск программы
@@ -128,3 +128,5 @@ make -j3
 ```
 
 После успешного выполнения программы-клиента сервер прекращает работу.
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-error=switch-enum -Wno-error=deprecated -Wno-error=useless-cast -Wno-error=effc++ -Wno-error=extra-semi -Wno-error=noexcept -Wno-error=shadow-compatible-local -Wno-error=cast-align -Wno-error=shadow-local -Wno-error=old-style-cast -Wno-error=format-nonliteral -Wno-error=switch-default -Wno-pedantic")
