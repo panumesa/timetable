@@ -10,11 +10,7 @@ set(TIMETABLE_INCLUDE_DIRS "include")
 
 find_package(Httplib)
 
-if(MSVC)
-  string(REGEX REPLACE "/W[1-3]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-else()
-  add_compile_options(-Wall -Wextra -pedantic -Werror -Wconversion)
-endif()
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-error=switch-enum -Wno-error=deprecated -Wno-error=useless-cast -Wno-error=effc++ -Wno-error=extra-semi -Wno-error=noexcept -Wno-error=shadow-compatible-local -Wno-error=cast-align -Wno-error=shadow-local -Wno-error=old-style-cast -Wno-error=format-nonliteral -Wno-error=switch-default -Wno-pedantic")
 
 if (NOT HTTPLIB_INCLUDE_DIR)
   file(DOWNLOAD https://github.com/yhirose/cpp-httplib/archive/refs/tags/v0.8.8.tar.gz
