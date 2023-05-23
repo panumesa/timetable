@@ -23,11 +23,12 @@ void Test_get_keywords(){
     vector<pair<vector<string>,string>> Events = Generate_Events(num);
     vector<string> query = Gen_query();
     set<string> expected2 = Gen_expected(Events, query);
-    for (int i = 0; i < Events.size(); ++i) {
-        cli.Post("/add_event", generator(i,Events[i].second,Events[i].first),cont_type.c_str());
+    for (size_t i = 0; i < Events.size(); ++i) {
+        cli.Post("/add_event", generator(static_cast<int>(i),Events[i].second,Events[i].first),cont_type.c_str());
     }
     auto res2 = cli.Post("/get_keywords", generator_q(query), cont_type.c_str());
     set<string> set_res2 = nlohmann::json::parse(res2->body).get<set<string>>();
+    std::cout << res2->body;
 //  if(expected2 )
     if(expected2 != set_res2){
         std::cout << "Test 2 failed \n";

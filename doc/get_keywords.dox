@@ -17,7 +17,7 @@ Example:
    }
    input  =  { "keywords" : ["k1", "k2", "k3"]}
                ........
-   get_keywords
+   get_keywords()
                ........
 
    output  = {"body" : ["des1", "des2"]};

@@ -198,7 +198,7 @@ void RequireEqual(const Left& left, const Right& right,
   using ascii_codes::bold;
   using ascii_codes::normal;
 
-  if (left != right) {
+  if (left != static_cast<const size_t>(right)) {
     std::ostringstream reason;
 
     reason << esc << redColor << esc << bold

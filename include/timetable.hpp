@@ -239,14 +239,14 @@ class Timetable {
       EventsByDateTime() const {
     return eventsByDateTime;
   }
- Timetable(const nlohmann::json& j){
+// Timetable(const nlohmann::json& j){
 //   idToEvent = j["idToEvent"].get<std::unordered_map<std::size_t, Event>>();
-   const auto& events = j["idToEvent"];
-   for(const auto& it : events){
-
-   }
+//   const auto& events = j["idToEvent"];
+//   for(const auto& it : events){
+//
+//   }
 //   eventsByDateTime = j["eventsByDateTime"].get<std::map<std::pair<Date, Time>,std::unordered_set<std::size_t>>>();
-  }
+//  }
  private:
   //! Словарь, задающий соответствие идентификационного номера событию.
   std::unordered_map<std::size_t, Event> idToEvent;

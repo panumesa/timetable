@@ -13,7 +13,7 @@
 #include <set>
 #include <unordered_set>
 #include "generator.h"
-const int num = 14;
+const int num = 16;
 /**
  * @brief Набор тестов для класса timetable::Timetable.
  */

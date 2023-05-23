@@ -10,6 +10,12 @@ set(TIMETABLE_INCLUDE_DIRS "include")
 
 find_package(Httplib)
 
+if(MSVC)
+  string(REGEX REPLACE "/W[1-3]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+else()
+  add_compile_options(-Wall -Wextra -pedantic -Werror -Wconversion)
+endif()
+
 if (NOT HTTPLIB_INCLUDE_DIR)
   file(DOWNLOAD https://github.com/yhirose/cpp-httplib/archive/refs/tags/v0.8.8.tar.gz
       "${CMAKE_BINARY_DIR}/deps/cpp-httplib-v0.8.8.tar.gz"
